@@ -1,2 +1,2 @@
 # fln-utility-tools
-pip django pypdf 
+pip django pypdf qrcode[pil]

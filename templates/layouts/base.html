@@ -43,17 +43,17 @@
     <!-- Plugin untuk validasi tipe file -->
     <script src="{% static 'vendor/filepond/filepond-plugin-file-validate-type.js' %}"></script>
     <style>
-    html, body {
-      height: 100%;
-    }
-    body {
-      display: flex;
-      flex-direction: column;
-      background-color: #eaf9f9; /* Contoh warna abu Bootstrap */
-    }
-    main {
-      flex: 1;
-    }
+      html, body {
+        height: 100%;
+      }
+      body {
+        display: flex;
+        flex-direction: column;
+        background-color: #eaf9f9; /* Contoh warna abu Bootstrap */
+      }
+      main {
+        flex: 1;
+      }
     </style>
 </head>
 
@@ -70,15 +70,15 @@
 
       <nav id="navmenu" class="navmenu">
         <ul>
-          <li><a href="index.html" class="active">Barcode Generator</a></li>
-          <li><a href="index.html" >QR Code Generator</a></li>
+          <li><a href="index.html" class="btn btn-light disabled">Barcode Generator</a></li>
+          <li><a href="{% url 'qrcode_generator' %}" >QR Code Generator</a></li>
           <li class="dropdown"><a href="#"><span>PDF Tools</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
             <ul>
               <li><a href="{% url 'pdf_merge' %}">Merge</a></li>
               <li><a href="{% url 'pdf_split' %}">Split</a></li>
-              <li><a href="property-details.html">Compress</a></li>
-              <li><a href="property-details.html">Convert to Excel</a></li>
-              <li><a href="property-details.html">Convert to Word</a></li>
+              <li><a href="property-details.html" class="btn btn-light disabled">Compress</a></li>
+              <li><a href="property-details.html" class="btn btn-light disabled">Convert to Excel</a></li>
+              <li><a href="property-details.html" class="btn btn-light disabled">Convert to Word</a></li>
             </ul>
           </li>
         </ul>
@@ -89,18 +89,7 @@
   </header>
 
   <main class="main">
-    <div class="page-title"></div>
-
-    <!-- Testimonials Section -->
-    <section id="testimonials" class="testimonials section light-background">
-
-      <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
-        <h2>{{ title }}</h2>
-        <p>{{ subtitle }}</p>
-      </div><!-- End Section Title -->
-      {% block content %}{% endblock content %}
-    </section><!-- /Testimonials Section -->
+    {% block content %}{% endblock content %}
   </main>
 
   <footer id="footer" class="footer position-relative">
@@ -110,20 +99,6 @@
           <div class="col-lg-6">
             <div class="copyright">
               <p>© <span>Copyright</span> <strong class="px-1 sitename">MyWebsite</strong> <span>All Rights Reserved</span></p>
-            </div>
-          </div>
-          <div class="col-lg-6">
-            <div class="footer-bottom-links">
-              <a href="#">Privacy Policy</a>
-              <a href="#">Terms of Service</a>
-              <a href="#">Cookie Policy</a>
-            </div>
-            <div class="credits">
-              <!-- All the links in the footer should remain intact. -->
-              <!-- You can delete the links only if you've purchased the pro version. -->
-              <!-- Licensing information: https://bootstrapmade.com/license/ -->
-              <!-- Purchase the pro version with working PHP/AJAX contact form: [buy-url] -->
-              Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
             </div>
           </div>
         </div>

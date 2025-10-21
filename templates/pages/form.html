@@ -1,41 +1,136 @@
 {% extends 'layouts/base.html' %}
 {% load static %}
 {% block content %}
-<div class="container" data-aos="fade-up" data-aos-delay="100">
-    <div class="swiper-wrapper">
-        <div class="swiper-slide">
-            <div class="testimonial-item">
-                <form method="POST" enctype="multipart/form-data">
-                    {% csrf_token %}
-                    <div class="row">
-                        <div class="col-lg-12">
-                            {% for field in form %}
-                                {% if 'form-check-input' in field.field.widget.attrs.class %}
-                                    <!-- Checkbox atau switch -->
-                                    <div class="form-check form-switch">
-                                        {{ field }}
-                                        <label class="form-check-label" for="{{ field.id_for_label }}">
-                                            {{ field.label }}
-                                        </label>
+
+ <div class="page-title"></div>
+    <section id="agent-profile" class="agent-profile section light-background">
+        <div class="container section-title" data-aos="fade-up">
+                <h2>{{ title }}</h2>
+                <p>{{ subtitle }}</p>
+            </div>
+
+        <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+        <!-- Agent Profile Card -->
+        <div class="agent-profile-card p-4" data-aos="zoom-in" data-aos-delay="150">
+            <div class="profile-content">
+                <div class="agent-header">
+                    <h1 class="agent-name">&nbsp;</h1>
+                    <div class="agent">
+                        <form method="POST" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    {% for field in form %}
+                                        {% if 'form-check-input' in field.field.widget.attrs.class %}
+                                            <!-- Checkbox atau switch -->
+                                            <div class="form-check form-switch mb-4">
+                                                {{ field }}
+                                                <label class="form-check-label" for="{{ field.id_for_label }}">
+                                                    {{ field.label }}
+                                                </label>
+                                            </div>
+                                        {% else %}
+                                            <label for="{{ field.id_for_label }}" class="form-label text-secondary"></label>
+                                            {{ field }}
+                                        {% endif %}
+                                    {% endfor %}
+                                </div>
+                                <div class="col-12">
+                                <div class="home-about">
+                                    <div class="content-wrapper">
+                                        <div class="cta-wrapper">
+                                        {% for button in buttons_action %}{{ button|safe }}{% endfor %}
+                                        </div>
                                     </div>
-                                {% else %}
-                                    <label for="{{ field.id_for_label }}" class="form-label text-secondary"></label>
-                                    {{ field }}
-                                {% endif %}
-                            {% endfor %}
-                        </div>
-                        <div class="col-12">
-                        <div class="home-about">
-                            <div class="content-wrapper">
-                                <div class="cta-wrapper">
-                                   {% for button in buttons_action %}{{ button|safe }}{% endfor %}
                                 </div>
                             </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="quick-stats"></div>
+        </div>
+    </section>
+    <!-- Testimonials Section -->
+    {% comment %}<section id="testimonials" class="testimonials section light-background">
+        <!-- Section Title -->
+        <div class="container section-title" data-aos="fade-up">
+            <h2>{{ title }}</h2>
+            <p>{{ subtitle }}</p>
+        </div><!-- End Section Title -->
+        <div class="container" data-aos="fade-up" data-aos-delay="100">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <div class="testimonial-item">
+                        <form method="POST" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    {% for field in form %}
+                                        {% if 'form-check-input' in field.field.widget.attrs.class %}
+                                            <!-- Checkbox atau switch -->
+                                            <div class="form-check form-switch">
+                                                {{ field }}
+                                                <label class="form-check-label" for="{{ field.id_for_label }}">
+                                                    {{ field.label }}
+                                                </label>
+                                            </div>
+                                        {% else %}
+                                            <label for="{{ field.id_for_label }}" class="form-label text-secondary"></label>
+                                            {{ field }}
+                                        {% endif %}
+                                    {% endfor %}
+                                </div>
+                                <div class="col-12">
+                                <div class="home-about">
+                                    <div class="content-wrapper">
+                                        <div class="cta-wrapper">
+                                        {% for button in buttons_action %}{{ button|safe }}{% endfor %}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div><!-- End Testimonial Item -->
+            </div>
+        </div>
+    </section><!-- /Testimonials Section -->{% endcomment %}
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="qrModal" tabindex="-1" aria-labelledby="qrModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <!-- Tombol close di pojok kanan atas -->
+            <button type="button" class="btn-close position-absolute top-0 end-0 m-3" data-bs-dismiss="modal" aria-label="Close"></button>
+            <div class="modal-body text-center">
+                <img src="{{ code_img }}" alt="QR Code" class="img-fluid mb-3" id="qrCodeImage">
+                
+                <div class="about">
+                    
+                    <div class="terms-of-service">
+                        <div class="tos-header">
+                            <span class="last-updated">{{ text }}</span>
                         </div>
                     </div>
-                </form>
+                    <div class="team-preview">
+                        <a href="{{ code_img }}" download="{{ filename }}.png" class="view-team-btn">Download</a>
+                    </div>
+                </div> 
             </div>
-        </div><!-- End Testimonial Item -->
+        </div>
     </div>
 </div>
-    {% endblock content %}
+
+
+{% if code_img %}
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        var myModal = new bootstrap.Modal(document.getElementById('qrModal'));
+        myModal.show();
+    });
+</script>
+{% endif %}
+{% endblock content %}

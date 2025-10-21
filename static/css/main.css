@@ -4105,7 +4105,7 @@ section,
 
 .about .team-preview {
   text-align: center;
-  margin: 5rem 0;
+  margin: 2rem 0;
 }
 
 .about .team-preview h3 {
@@ -4166,14 +4166,14 @@ section,
 
 .about .team-preview .view-team-btn {
   display: inline-block;
-  margin-top: 2rem;
+  /* margin-top: 2rem; */
   padding: 1rem 2.5rem;
   background: var(--accent-color);
   color: var(--contrast-color);
   text-decoration: none;
   border-radius: 50px;
   font-weight: 600;
-  text-transform: uppercase;
+  /* text-transform: uppercase; */
   letter-spacing: 0.5px;
   transition: all 0.3s ease;
 }
@@ -8356,9 +8356,9 @@ section,
 /*--------------------------------------------------------------
 # Terms Of Service Section
 --------------------------------------------------------------*/
-.terms-of-service .tos-header {
+/* .terms-of-service .tos-header {
   margin-bottom: 60px;
-}
+} */
 
 .terms-of-service .tos-header .last-updated {
   display: inline-block;
@@ -8367,7 +8367,7 @@ section,
   border-radius: 30px;
   color: var(--accent-color);
   font-size: 0.95rem;
-  margin-bottom: 20px;
+  /* margin-bottom: 20px; */
 }
 
 .terms-of-service .tos-header h2 {
