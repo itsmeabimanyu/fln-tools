@@ -104,9 +104,11 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <!-- Tombol close di pojok kanan atas -->
-            <button type="button" class="btn-close position-absolute top-0 end-0 m-3" data-bs-dismiss="modal" aria-label="Close"></button>
+            <div class="modal-body d-flex justify-content-end">
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
             <div class="modal-body text-center">
-                <img src="{{ code_img }}" alt="QR Code" class="img-fluid mb-3" id="qrCodeImage">
+                <img src="{{ code_img }}" alt="QR Code" class="img-fluid" id="qrCodeImage">
                 
                 <div class="about">
                     
