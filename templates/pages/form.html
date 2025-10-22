@@ -5,9 +5,23 @@
  <div class="page-title"></div>
     <section id="agent-profile" class="agent-profile section light-background">
         <div class="container section-title" data-aos="fade-up">
-                <h2>{{ title }}</h2>
-                <p>{{ subtitle }}</p>
+            <h2>{{ title }}</h2>
+            <p>{{ subtitle }}</p>
+        </div>
+
+        {% if messages %}
+        <div class="privacy w-50 mx-auto text-center">
+            <div class="privacy-content">
+                <div class="last-updated aos-init aos-animate" style="background-color: rgba(255, 0, 0, 0.1); border-left: 4px solid #d9534f" data-aos="fade-up" data-aos-delay="200">
+                    <div class="messages">
+                        {% for message in messages %}
+                        <p class="alert alert-{{ message.tags }} text-danger">{{ message }}</p>
+                        {% endfor %}
+                    </div>
+                </div>
             </div>
+        </div>
+        {% endif %}
 
         <div class="container" data-aos="fade-up" data-aos-delay="100">
 

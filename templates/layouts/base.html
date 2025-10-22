@@ -5,12 +5,12 @@
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>Index - TheProperty Bootstrap Template</title>
+  <title>Tools | {{ title }}</title>
   <meta name="description" content="">
   <meta name="keywords" content="">
 
   <!-- Favicons -->
-  <link href="{% static 'img/favicon.png' %}" rel="icon">
+  <link href="{% static 'img/favicon.ico' %}" rel="icon">
   <link href="{% static 'img/apple-touch-icon.png' %}" rel="apple-touch-icon">
 
   <!-- Fonts -->
@@ -64,21 +64,21 @@
 
       <a href="index.html" class="logo d-flex align-items-center me-auto me-xl-0">
         <!-- Uncomment the line below if you also wish to use an image logo -->
-        <!-- <img src="{% static 'img/logo.webp' %}" alt=""> -->
-        <h1 class="sitename">TheProperty</h1>
+        <img src="{% static 'img/logo_01.jpg' %}" alt="">
+        <!-- <h1 class="sitename">Tools</h1> -->
       </a>
 
       <nav id="navmenu" class="navmenu">
         <ul>
-          <li><a href="index.html" class="btn btn-light disabled">Barcode Generator</a></li>
-          <li><a href="{% url 'qrcode_generator' %}" >QR Code Generator</a></li>
+          <li><a href="{% url 'barcode_generator' %}">Barcode Generator</a></li>
+          <li><a href="{% url 'qrcode_generator' %}">QR Code Generator</a></li>
           <li class="dropdown"><a href="#"><span>PDF Tools</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
             <ul>
               <li><a href="{% url 'pdf_merge' %}">Merge</a></li>
               <li><a href="{% url 'pdf_split' %}">Split</a></li>
-              <li><a href="property-details.html" class="btn btn-light disabled">Compress</a></li>
-              <li><a href="property-details.html" class="btn btn-light disabled">Convert to Excel</a></li>
-              <li><a href="property-details.html" class="btn btn-light disabled">Convert to Word</a></li>
+              <li><a href="{% url 'pdf_compress' %}" class="btn btn-light disabled">Compress</a></li>
+              <li><a href="{% url 'pdf_to_excel' %}">Convert to Excel</a></li>
+              <li><a href="{% url 'pdf_to_word' %}">Convert to Word</a></li>
             </ul>
           </li>
         </ul>
@@ -98,7 +98,7 @@
         <div class="row align-items-center">
           <div class="col-lg-6">
             <div class="copyright">
-              <p>© <span>Copyright</span> <strong class="px-1 sitename">MyWebsite</strong> <span>All Rights Reserved</span></p>
+              <p>© <span>2025</span> <strong class="px-1 sitename">IT Frina Lestari Nusantara, Inc.</strong> <span>All Rights Reserved</span></p>
             </div>
           </div>
         </div>
